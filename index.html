@@ -58,6 +58,10 @@
                 <button type="submit">Enviar</button>
             </form>
 
+            <p id="msg-sucesso" style="display:none; color:green; margin-top:15px;">
+                ✅ Cadastro enviado com sucesso!
+            </p>
+
             <iframe name="hidden_iframe" style="display:none;"></iframe>
         </div>
     </section>
@@ -72,13 +76,11 @@
 
     <script>
         function enviado() {
-            document.getElementById("msg-sucesso").style.display = "block";
 
-            // limpa o formulário
-            document.querySelector("form").reset();
-
-            // impede qualquer redirecionamento
-            return false;
+            // pequeno atraso para garantir o envio
+            setTimeout(function () {
+                document.getElementById("msg-sucesso").style.display = "block";
+            }, 300);
         }
     </script>
 
