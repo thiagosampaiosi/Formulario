@@ -44,7 +44,7 @@
 
             <form
                 action="https://docs.google.com/forms/d/e/1FAIpQLSeTtQSv0t8d0fpdXwBfp_S03enq-tsjVKraMTdxBWYB2jrWWg/formResponse"
-                method="POST" target="hidden_iframe" onsubmit="enviado()">
+                method="POST" target="hidden_iframe" onsubmit="return enviado();">
 
                 <label>Nome Completo</label>
                 <input type="text" name="entry.2650999" required>
@@ -72,7 +72,13 @@
 
     <script>
         function enviado() {
-            alert("Cadastro enviado com sucesso!");
+            document.getElementById("msg-sucesso").style.display = "block";
+
+            // limpa o formulário
+            document.querySelector("form").reset();
+
+            // impede qualquer redirecionamento
+            return false;
         }
     </script>
 
